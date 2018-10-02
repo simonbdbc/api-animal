@@ -7,7 +7,7 @@ class Dispatcher
     public function accueil($aURI)
     {
         // var_dump($aURI);die;
-        $viewName = 'base';
+        $viewName = 'home';
 
         $view = new View();
         $view->renderView($viewName, 
@@ -21,7 +21,10 @@ class Dispatcher
         // var_dump($aURI);die;
 
         $view = new View();
-        $view->renderView($aURI);
+        $view->renderView($aURI, 
+        [
+            "{{TITLE}}" => $aURI[0],
+        ]);
     }
 
     public function compose($aURI)
@@ -30,7 +33,10 @@ class Dispatcher
         $viewName = $aURI;
 
         $view = new View();
-        $view->renderView($viewName);
+        $view->renderView($viewName, 
+        [
+            "{{TITLE}}" => $aURI[0],
+        ]);
     }
 
     public function code404()

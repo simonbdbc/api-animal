@@ -11,10 +11,10 @@ class View
         switch ($type) {
             case 'view':
                 // $viewPath = $this->viewDirectory . $viewName . ".html";
-                $mAnimal = new Animal;
-                $animal = $mAnimal->chooseModel($aURI[0]);
-                $viewPath = '';
                 if(is_array($aURI)){
+                    $mAnimal = new Animal;
+                    $animal = $mAnimal->chooseModel($aURI[0]);
+                    $viewPath = '';
                     array_key_exists(1,$aURI) ? $nbr = intval($aURI[1]) : $nbr = 1;
                     $nbr > 10 ? $nbr = 10 : '';
                     for ($i=0; $i < $nbr; $i++) { 
